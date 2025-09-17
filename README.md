@@ -61,7 +61,7 @@ try to set below before startup build command.
 
 In case of validate token you need to specified VUE_APP_API_TOKEN too.
 
-3. Using `app.config.js` by apply setting appVariables like
+3. Using `config/app.config.js` by apply setting appVariables like
 ```
     API_URL: "http://127.0.0.1:8080",
     BASE_URL: "http://127.0.0.1:8080",

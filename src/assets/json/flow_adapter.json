@@ -1,0 +1,806 @@
+[
+  {
+    "name": "AttachFileAdapter",
+    "title": "Attach File Query",
+    "input": {
+      "attachid": {
+        "type": "STRING"
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "connection",
+          "validate": true
+        },
+        {
+          "field": "settings.attachid",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "ClassifyAdapter",
+    "title": "Classify Categories",
+    "input": {
+      "classes": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "ARRAY",
+          "fields": {
+            "category": {
+              "type": "STRING"
+            },
+            "prompt": {
+              "type": "STRING"
+            }
+          }
+        }
+      }
+    },
+    "output": {
+      "classify": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.classes",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "ConditionAdapter",
+    "title": "IF Condition",
+    "output": {
+      "condition": {
+        "type": "STRING"
+      },
+      "validity": {
+        "type": "BOOLEAN"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.condition.expression",
+          "validate": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "DefineAdapter",
+    "title": "User Defined Answer",
+    "input": {
+      "define": {
+        "type": "STRING"
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.define",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "DispatchAdapter",
+    "title": "Dispatch Transition"
+  },
+  {
+    "name": "DocxFileAdapter",
+    "title": "Word File Query",
+    "input": {
+      "files": {
+        "type": "STRING",
+        "options": {
+          "scheme": "ARRAY"
+        }
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.assets",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "ExcelFileAdapter",
+    "title": "Excel File Query",
+    "input": {
+      "files": {
+        "type": "STRING",
+        "options": {
+          "scheme": "ARRAY"
+        }
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.assets",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "ExpressionAdapter",
+    "title": "Expression Function",
+    "output": {
+      "expression": {
+        "type": "STRING"
+      },
+      "evaluated": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT"
+        }
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.expression",
+          "validate": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "ExtractAdapter",
+    "title": "Extract Query Into Entities",
+    "output": {
+      "extract": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT",
+          "fields": {
+            "entities": {
+              "type": "TEXT",
+              "options": {
+                "scheme": "ARRAY"
+              }
+            },
+            "criteria": {
+              "type": "TEXT",
+              "options": {
+                "scheme": "ARRAY"
+              }
+            }
+          }
+        }
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.customPrompt",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "HttpRequestAdapter",
+    "title": "HTTP Request",
+    "input": {
+      "httpurl": {
+        "type": "STRING"
+      }
+    },
+    "output": {
+      "contents": {
+        "type": "STRING"
+      },
+      "jsondata": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT"
+        }
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.httpurl",
+          "validate": false
+        },
+        {
+          "field": "settings.setting",
+          "validate": false
+        },
+        {
+          "field": "settings.body",
+          "validate": false
+        },
+        {
+          "field": "settings.parameters",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "MultiQuestAdapter",
+    "title": "Gather Answer From multi Questions",
+    "input": {
+      "questions": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "ARRAY",
+          "fields": {
+            "question": {
+              "type": "STRING"
+            }
+          }
+        }
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      },
+      "answers": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "ARRAY"
+        }
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.adapter",
+          "validate": true
+        },
+        {
+          "field": "settings.questions",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "MultiRagContentAdapter",
+    "title": "Multi RAG Content Query",
+    "input": {
+      "ragid": {
+        "type": "STRING"
+      },
+      "entities": {
+        "type": "STRING",
+        "options": {
+          "scheme": "ARRAY"
+        }
+      }
+    },
+    "output": {
+      "contents": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.ragid",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "MultiRagFileAdapter",
+    "title": "Multi RAG File Query",
+    "input": {
+      "ragid": {
+        "type": "STRING"
+      },
+      "entities": {
+        "type": "STRING",
+        "options": {
+          "scheme": "ARRAY"
+        }
+      }
+    },
+    "output": {
+      "response": {
+        "type": "STRING"
+      },
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.ragid",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "PdfFileAdapter",
+    "title": "PDF File Query",
+    "input": {
+      "files": {
+        "type": "STRING",
+        "options": {
+          "scheme": "ARRAY"
+        }
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.assets",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "QueryAnswerAdapter",
+    "title": "Compose Answer",
+    "input": {
+      "dataset": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT"
+        }
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.customPrompt",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "QueryCreateAdapter",
+    "title": "SQL Creator",
+    "input": {
+      "prompt": {
+        "type": "STRING"
+      }
+    },
+    "output": {
+      "sql": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "connection",
+          "validate": true
+        },
+        {
+          "field": "settings.customPrompt",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "QueryExecuteAdapter",
+    "title": "Query Executer",
+    "input": {
+      "sql": {
+        "type": "STRING"
+      }
+    },
+    "output": {
+      "dataset": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT"
+        }
+      },
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "connection",
+          "validate": true
+        },
+        {
+          "field": "settings.sql",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "RagContentAdapter",
+    "title": "RAG Content Query",
+    "input": {
+      "ragid": {
+        "type": "STRING"
+      },
+      "text": {
+        "type": "STRING"
+      }
+    },
+    "output": {
+      "contents": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.ragid",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "RagFileAdapter",
+    "title": "RAG File Query",
+    "input": {
+      "ragid": {
+        "type": "STRING"
+      }
+    },
+    "output": {
+      "response": {
+        "type": "STRING"
+      },
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.ragid",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "RemoveAttributeAdapter",
+    "title": "Attribute Remover",
+    "options": {
+      "required": [
+        {
+          "field": "settings.removeAttribute",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "ScriptAdapter",
+    "title": "Script Function",
+    "output": {
+      "statement": {
+        "type": "STRING"
+      },
+      "scripted": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT"
+        }
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.script",
+          "validate": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "SendMailAdapter",
+    "title": "Mail Sender",
+    "input": {
+      "subject": {
+        "type": "STRING"
+      },
+      "email": {
+        "type": "STRING"
+      },
+      "cc": {
+        "type": "STRING"
+      },
+      "bcc": {
+        "type": "STRING"
+      },
+      "data": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT"
+        }
+      }
+    },
+    "output": {
+      "sent": {
+        "type": "BOOLEAN"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.subject",
+          "validate": true
+        },
+        {
+          "field": "settings.email",
+          "validate": true
+        },
+        {
+          "field": "settings.cc",
+          "validate": false
+        },
+        {
+          "field": "settings.bcc",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "SplitAdapter",
+    "title": "Split Into Sub Questions",
+    "output": {
+      "splits": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "ARRAY",
+          "fields": {
+            "question": {
+              "type": "STRING"
+            }
+          }
+        }
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.customPrompt",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "SumFileAdapter",
+    "title": "Summarize File",
+    "input": {
+      "filename": {
+        "type": "STRING"
+      },
+      "question": {
+        "type": "STRING"
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.filename",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "TextFileAdapter",
+    "title": "Text File Query",
+    "input": {
+      "files": {
+        "type": "STRING",
+        "options": {
+          "scheme": "ARRAY"
+        }
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.assets",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "WebHookAdapter",
+    "title": "Web Hook",
+    "input": {
+      "webhook": {
+        "type": "STRING"
+      },
+      "data": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT"
+        }
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.webhook",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "WebPageAdapter",
+    "title": "Web Page Query",
+    "input": {
+      "urls": {
+        "type": "STRING",
+        "options": {
+          "scheme": "ARRAY"
+        }
+      }
+    },
+    "output": {
+      "answer": {
+        "type": "STRING"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "ai",
+          "validate": true
+        },
+        {
+          "field": "settings.assets",
+          "validate": false
+        }
+      ]
+    }
+  },
+  {
+    "name": "WriteFileAdapter",
+    "title": "File Writer",
+    "input": {
+      "filename": {
+        "type": "STRING"
+      },
+      "data": {
+        "type": "TEXT",
+        "options": {
+          "scheme": "OBJECT"
+        }
+      }
+    },
+    "output": {
+      "writed": {
+        "type": "BOOLEAN"
+      }
+    },
+    "options": {
+      "required": [
+        {
+          "field": "settings.filename",
+          "validate": false
+        }
+      ]
+    }
+  }
+]

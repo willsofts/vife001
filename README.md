@@ -33,7 +33,7 @@ npm run build
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### How To Examine
-1. start [emigrate](https://github.com/willsofts/emigrate) project 
+1. start [aiflow](https://github.com/willsofts/aiflow) project 
     goto https://github.com/willsofts/aiflow
 2. api try out, this is supported api that you have created ex. \
     curl -X POST http://localhost:8080/api/aife001/collect

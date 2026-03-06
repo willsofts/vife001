@@ -47,9 +47,9 @@ or
     export VALIDATE_TOKEN=false
 
 ### Testing
-1. Normally copy output folder after build success ex. aife001 into [aiflow](https://github.com/willsofts/aiflow) project under public path and then you can launch it directly ex. 
+1. Normally copy output folder after build success ex. vife001 into [aiflow](https://github.com/willsofts/aiflow) project under public path and then you can launch it directly ex. 
 
-    http://localhost:8080/aife001/aife001.html
+    http://localhost:8080/vife001/vife001.html
 
 2. This can run serve or using file protocol testing but it must build with environment variables,
 try to set below before startup build command.
